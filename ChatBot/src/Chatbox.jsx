@@ -7,6 +7,7 @@ function Chatbot() {
   const [adminMessage, setAdminMessage] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const conversationFlow = {
     start: {
@@ -108,7 +109,7 @@ function Chatbot() {
             placeholder="Ton adresse e-mail"
             />
             {emailError && <div style={{ color: 'red' }}>{emailError}</div>}
-            <button onClick={() => sendMessage(adminMessage, userEmail)}>Envoyer</button>
+            <button onClick={() => sendMessage(adminMessage, userEmail)} disabled={isLoading}>Envoyer</button>
         </div>
         ) : (
         currentState !== 'end' && Object.keys(conversationFlow[currentState].responses).map((response) => (
