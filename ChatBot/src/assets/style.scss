@@ -1,0 +1,136 @@
+// ************************************************
+// ***********         RESET CSS         **********
+// ************************************************
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+// ************************************************
+// ***********         FONT  CSS         **********
+// ************************************************
+
+
+@font-face {
+    font-family: 'Jost';
+    src: url('/public/font/Jost-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/public/font/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'PoppinsBlack';
+    src: url('/public/font/Poppins-SemiBold.ttf');
+}
+
+
+
+// ************************************************
+// ***********         COLOR CSS         **********
+// ************************************************
+
+$black: rgb(31, 30, 29);
+$gray : #CAC9CB;
+
+
+
+
+
+// ************************************************
+// ***********         RESPONSIVE        **********
+// ************************************************
+
+
+@mixin for-phone{
+    @media (max-width:740px) {
+        @content
+        
+    }
+};
+
+
+@mixin for-tablet{
+    @media (max-width:768px) {
+        @content
+        
+    }
+};
+
+@mixin for-1024{
+    @media (max-width:1024px) {
+        @content
+        
+    }
+};
+
+@mixin for-4k{
+    @media (min-width:2560px) {
+        @content
+        
+    }
+};
+
+// ************************************************
+// ***********         GLOBAL            **********
+// ************************************************
+
+/* Stylise la scrollbar entière */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+/* Stylise la piste de la scrollbar */
+::-webkit-scrollbar-track {
+    
+
+}
+
+/* Stylise le thumb de la scrollbar */
+::-webkit-scrollbar-thumb {
+    background: none;
+
+
+}
+
+/* Stylise le thumb de la scrollbar au survol */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+body{
+    display: grid;
+    place-items: center;
+}
+
+
+button{
+    cursor: pointer;
+}
+
+p{
+    font-family: 'Poppins';
+    font-size: 16px;
+    text-align: justify;
+}
+button,h3{
+    font-family: 'Poppins';
+
+}
+
+
+// ************************************************
+// ***********         IMPORT            **********
+// ************************************************
+
+
+@import 'chatbot';

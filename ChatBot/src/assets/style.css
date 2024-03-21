@@ -1,0 +1,102 @@
+@charset "UTF-8";
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("/public/font/Jost-ExtraBold.ttf");
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("/public/font/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: "PoppinsBlack";
+  src: url("/public/font/Poppins-SemiBold.ttf");
+}
+/* Stylise la scrollbar entière */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+/* Stylise la piste de la scrollbar */
+/* Stylise le thumb de la scrollbar */
+::-webkit-scrollbar-thumb {
+  background: none;
+}
+
+/* Stylise le thumb de la scrollbar au survol */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+body {
+  display: grid;
+  place-items: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+p {
+  font-family: "Poppins";
+  font-size: 16px;
+  text-align: justify;
+}
+
+button, h3 {
+  font-family: "Poppins";
+}
+
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin-top: 400px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  width: 400px;
+  height: 500px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.chatContainer .chatbotContainer {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-color: rgb(240, 243, 245);
+  border-radius: 20px;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  margin-bottom: 10px;
+  padding: 20px;
+  color: rgb(39, 74, 163);
+  font-size: 18px;
+  font-weight: 900;
+}
+.chatContainer .chatbotContainer li {
+  padding-top: 15px;
+}
+.chatContainer .choiceContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  height: 70px;
+}
+.chatContainer .choiceContainer .chatbuttonBox {
+  border: none;
+  padding: 5px;
+  height: 30px;
+  border-radius: 10px;
+  color: white;
+  background-color: rgb(117, 117, 244);
+}/*# sourceMappingURL=style.css.map */

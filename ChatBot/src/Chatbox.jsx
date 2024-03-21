@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 function Chatbot() {
   const [currentState, setCurrentState] = useState('start');
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([{ id: Date.now(), text: "Bonjour, que souhaitez-vous faire ?", sender: 'bot' }]);
   const [adminMessage, setAdminMessage] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -88,35 +88,39 @@ function Chatbot() {
   };
 
   return (
-    <div>
-      <ul>
+    <div className='chatContainer'>
+      <ul className='chatbotContainer'>
         {messages.map((message) => (
           <li key={message.id}>{message.sender === 'user' ? "Vous" : "Bot"}: {message.text}</li>
         ))}
       </ul>
       {currentState === 'contactAdmin' ? (
         <div>
-            <input
+          <input
             type="text"
             value={adminMessage}
             onChange={(e) => setAdminMessage(e.target.value)}
             placeholder="Tape ton message ici"
-            />
-            <input
+          />
+          <input
             type="email"
             value={userEmail}
             onChange={(e) => setUserEmail(e.target.value)}
             placeholder="Ton adresse e-mail"
-            />
-            {emailError && <div style={{ color: 'red' }}>{emailError}</div>}
-            <button onClick={() => sendMessage(adminMessage, userEmail)} disabled={isLoading}>Envoyer</button>
+          />
+          {emailError && <div style={{ color: 'red' }}>{emailError}</div>}
+          <button onClick={() => sendMessage(adminMessage, userEmail)} disabled={isLoading}>Envoyer</button>
         </div>
-        ) : (
-        currentState !== 'end' && Object.keys(conversationFlow[currentState].responses).map((response) => (
-          <button key={response} onClick={() => sendMessage(response)}>
-            {response}
-          </button>
-        ))
+      ) : (
+        currentState !== 'end' && (
+          <div className='choiceContainer'> {/* Ajout de cette div pour englober les boutons */}
+            {Object.keys(conversationFlow[currentState].responses).map((response) => (
+                <button className='chatbuttonBox' key={response} onClick={() => sendMessage(response)}>
+                  {response}
+                </button>
+            ))}
+          </div>
+        )
       )}
     </div>
   );
