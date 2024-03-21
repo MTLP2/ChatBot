@@ -7,18 +7,6 @@
   padding: 0;
 }
 
-@font-face {
-  font-family: "Jost";
-  src: url("/public/font/Jost-ExtraBold.ttf");
-}
-@font-face {
-  font-family: "Poppins";
-  src: url("/public/font/Poppins-Regular.ttf");
-}
-@font-face {
-  font-family: "PoppinsBlack";
-  src: url("/public/font/Poppins-SemiBold.ttf");
-}
 /* Stylise la scrollbar entière */
 ::-webkit-scrollbar {
   width: 12px;
@@ -43,16 +31,6 @@ body {
 
 button {
   cursor: pointer;
-}
-
-p {
-  font-family: "Poppins";
-  font-size: 16px;
-  text-align: justify;
-}
-
-button, h3 {
-  font-family: "Poppins";
 }
 
 .chatContainer {

@@ -12,7 +12,7 @@ app.use(cors());
 
 const transporter = nodemailer.createTransport({
   host: 'mail.matheolopes.com', // Remplace par ton domaine
-  port: 587, // Port SMTP standard pour la soumission de mails
+  port: '', // Port SMTP standard pour la soumission de mails
   secure: false, // Pour le port 587, cette option doit être false
   auth: {
     user: '', // Ton adresse email complète
