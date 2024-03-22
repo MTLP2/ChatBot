@@ -88,41 +88,46 @@ function Chatbot() {
   };
 
   return (
-    <div className='chatContainer'>
-      <ul className='chatbotContainer'>
-        {messages.map((message) => (
-          <li key={message.id}>{message.sender === 'user' ? "Vous" : "Bot"}: {message.text}</li>
-        ))}
-      </ul>
-      {currentState === 'contactAdmin' ? (
-        <div>
-          <input
-            type="text"
-            value={adminMessage}
-            onChange={(e) => setAdminMessage(e.target.value)}
-            placeholder="Tape ton message ici"
-          />
-          <input
-            type="email"
-            value={userEmail}
-            onChange={(e) => setUserEmail(e.target.value)}
-            placeholder="Ton adresse e-mail"
-          />
-          {emailError && <div style={{ color: 'red' }}>{emailError}</div>}
-          <button onClick={() => sendMessage(adminMessage, userEmail)} disabled={isLoading}>Envoyer</button>
-        </div>
-      ) : (
-        currentState !== 'end' && (
-          <div className='choiceContainer'> {/* Ajout de cette div pour englober les boutons */}
-            {Object.keys(conversationFlow[currentState].responses).map((response) => (
-                <button className='chatbuttonBox' key={response} onClick={() => sendMessage(response)}>
-                  {response}
-                </button>
-            ))}
+    <>
+      <h2 className='title'>ChatBot</h2>
+      <div className='chatContainer'>
+        <ul className='chatbotContainer'>
+          {messages.map((message) => (
+            <li key={message.id}>{message.sender === 'user' ? "Vous" : "Bot"}: {message.text}</li>
+          ))}
+        </ul>
+        {currentState === 'contactAdmin' ? (
+          <div>
+            <input
+              type="text"
+              value={adminMessage}
+              onChange={(e) => setAdminMessage(e.target.value)}
+              placeholder="Tape ton message ici"
+            />
+            <input
+              type="email"
+              value={userEmail}
+              onChange={(e) => setUserEmail(e.target.value)}
+              placeholder="Ton adresse e-mail"
+            />
+            {emailError && <div style={{ color: 'red' }}>{emailError}</div>}
+            <button onClick={() => sendMessage(adminMessage, userEmail)} disabled={isLoading}>Envoyer</button>
           </div>
-        )
-      )}
-    </div>
+        ) : (
+          currentState !== 'end' && (
+            <div className='choiceContainer'> {/* Ajout de cette div pour englober les boutons */}
+              {Object.keys(conversationFlow[currentState].responses).map((response) => (
+                  <button className='chatbuttonBox' key={response} onClick={() => sendMessage(response)}>
+                    {response}
+                  </button>
+              ))}
+            </div>
+          )
+        )}
+      </div>
+    
+    
+    </>
   );
 }
 
